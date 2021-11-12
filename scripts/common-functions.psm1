@@ -35,8 +35,6 @@ function ExecuteTerraformAction {
 
         terraform init
 
-        $tfvarsInitialContent = Get-Content $tfvars_path -Raw
-
     }
     
     process {
@@ -45,13 +43,5 @@ function ExecuteTerraformAction {
     }
     
     end {
-        Set-Content -Path $tfvars_path -Value $tfvarsInitialContent -NoNewline
-
-        # Undo Comment backend.tf
-        ((Get-Content -path .\backend.tf) -replace '^# ', "") | Set-Content -Path .\backend.tf
-
-        # change tfm_deploy_role
-        ((Get-Content -path .\_locals.tf) -replace '^[\W]+#(.*#DEPLOY_FROM_PIPE)', '  $1')  | Set-Content -Path .\_locals.tf
-        ((Get-Content -path .\_locals.tf) -replace '^[\W]+(.*#DEPLOY_FROM_LOCAL)', '  #$1') | Set-Content -Path .\_locals.tf
     }
 }
