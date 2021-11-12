@@ -11,32 +11,113 @@ const initialBalance = {
 
 const initialQarters = {
   q1: {
-    expectedIncome: 0,
-    currentIncome: 0,
-    expectedOutcome: 0,
-    currentOutcome: 0,
+    total: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    hr: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    realState: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    services: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
   },
   q2: {
-    expectedIncome: 0,
-    currentIncome: 0,
-    expectedOutcome: 0,
-    currentOutcome: 0,
+    total: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    hr: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    realState: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    services: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
   },
   q3: {
-    expectedIncome: 0,
-    currentIncome: 0,
-    expectedOutcome: 0,
-    currentOutcome: 0,
+    total: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    hr: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    realState: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    services: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
   },
   q4: {
-    expectedIncome: 0,
-    currentIncome: 0,
-    expectedOutcome: 0,
-    currentOutcome: 0,
+    total: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    hr: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    realState: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
+    services: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
   },
 };
 
 const quarters = ['q1', 'q2', 'q3', 'q4'];
+const sections = ['hr', 'realState', 'services'];
 
 const Home = () => {
   const [data, setData] = useState(initialBalance);
@@ -44,13 +125,12 @@ const Home = () => {
 
   useEffect(() => {
     getBalance().then(data => setData(data));
-    getQuarters().then(data => setQuarterData(data));
+    // getQuarters().then(data => setQuarterData(data));
   }, []);
 
   return (
     <div>
       <div className="page-header">
-        {console.log('DATA!!!!!!!!!!!', quarterData)}
         <h3 className="page-title">Finance</h3>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -86,12 +166,14 @@ const Home = () => {
         </div>
         {quarters.map(quarter => {
           const incomePercent =
-            ((quarterData[quarter].currentIncome - quarterData[quarter].expectedIncome) /
-              quarterData[quarter].expectedIncome) *
+            ((quarterData[quarter].total.currentIncome -
+              quarterData[quarter].total.expectedIncome) /
+              quarterData[quarter].total.expectedIncome) *
             100;
           const outcomePercent =
-            ((quarterData[quarter].currentOutcome - quarterData[quarter].expectedIncome) /
-              quarterData[quarter].expectedOutcome) *
+            ((quarterData[quarter].total.currentOutcome -
+              quarterData[quarter].total.expectedIncome) /
+              quarterData[quarter].total.expectedOutcome) *
             100;
           return (
             <div key={quarter} className="col-md-6 grid-margin stretch-card">
@@ -104,7 +186,7 @@ const Home = () => {
                         <tr>
                           <th></th>
                           <th colSpan="2">Income</th>
-                          <th colSpan="2">Outcome</th>
+                          <th colSpan="2">Costs</th>
                         </tr>
                         <tr>
                           <th></th>
@@ -120,11 +202,11 @@ const Home = () => {
                             <b>TOTAL</b>
                           </td>
                           <td>
-                            <b>{formatNumber(quarterData[quarter].expectedIncome)}</b>
+                            <b>{formatNumber(quarterData[quarter].total.expectedIncome)}</b>
                           </td>
                           <td>
                             <div className=" d-flex">
-                              <b>{formatNumber(quarterData[quarter].currentIncome)}</b>
+                              <b>{formatNumber(quarterData[quarter].total.currentIncome)}</b>
                               <p
                                 className={`${
                                   incomePercent >= 1 ? 'text-success' : 'text-danger'
@@ -135,11 +217,11 @@ const Home = () => {
                             </div>
                           </td>
                           <td>
-                            <b>{formatNumber(quarterData[quarter].expectedOutcome)}</b>
+                            <b>{formatNumber(quarterData[quarter].total.expectedOutcome)}</b>
                           </td>
                           <td>
                             <div className=" d-flex">
-                              <b>{formatNumber(quarterData[quarter].currentOutcome)}</b>
+                              <b>{formatNumber(quarterData[quarter].total.currentOutcome)}</b>
                               <p
                                 className={`${
                                   outcomePercent >= 1 ? 'text-success' : 'text-danger'
@@ -150,122 +232,49 @@ const Home = () => {
                             </div>
                           </td>
                         </tr>
-                        <tr>
-                          <td>HR</td>
-                          <td>{formatNumber(quarterData[quarter].expectedIncome * 0.15)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentIncome * 0.15)}
-                              <p
-                                className={`${
-                                  incomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({(25).toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                          <td>{formatNumber(quarterData[quarter].expectedOutcome * 0.15)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentOutcome * 0.15)}
-                              <p
-                                className={`${
-                                  outcomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({outcomePercent.toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Real State</td>
-                          <td>{formatNumber(quarterData[quarter].expectedIncome * 0.3)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentIncome * 0.3)}
-                              <p
-                                className={`${
-                                  incomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({incomePercent.toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                          <td>{formatNumber(quarterData[quarter].expectedOutcome * 0.3)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentOutcome * 0.3)}
-                              <p
-                                className={`${
-                                  outcomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({outcomePercent.toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>AWS</td>
-                          <td>{formatNumber(quarterData[quarter].expectedIncome * 0.2)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentIncome * 0.2)}
-                              <p
-                                className={`${
-                                  incomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({incomePercent.toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                          <td>{formatNumber(quarterData[quarter].expectedOutcome * 0.2)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentOutcome * 0.2)}
-                              <p
-                                className={`${
-                                  outcomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({outcomePercent.toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>Services</td>
-                          <td>{formatNumber(quarterData[quarter].expectedIncome * 0.35)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentIncome * 0.35)}
-                              <p
-                                className={`${
-                                  incomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({incomePercent.toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                          <td>{formatNumber(quarterData[quarter].expectedOutcome * 0.35)}</td>
-                          <td>
-                            <div className=" d-flex">
-                              {formatNumber(quarterData[quarter].currentOutcome * 0.35)}
-                              <p
-                                className={`${
-                                  outcomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({outcomePercent.toFixed(2)}%)
-                              </p>
-                            </div>
-                          </td>
-                        </tr>
+                        {sections.map(section => {
+                          const qncomePercent =
+                            ((quarterData[quarter][section].currentIncome -
+                              quarterData[quarter][section].expectedIncome) /
+                              quarterData[quarter][section].expectedIncome) *
+                            100;
+                          const outcomePercent =
+                            ((quarterData[quarter][section].currentOutcome -
+                              quarterData[quarter][section].expectedIncome) /
+                              quarterData[quarter][section].expectedOutcome) *
+                            100;
+                          return (
+                            <tr>
+                              <td>{section}</td>
+                              <td>{formatNumber(quarterData[quarter][section].expectedIncome)}</td>
+                              <td>
+                                <div className=" d-flex">
+                                  {formatNumber(quarterData[quarter][section].currentIncome)}
+                                  <p
+                                    className={`${
+                                      incomePercent >= 1 ? 'text-success' : 'text-danger'
+                                    } ml-2 mb-0 font-weight-medium`}
+                                  >
+                                    ({incomePercent.toFixed(2)}%)
+                                  </p>
+                                </div>
+                              </td>
+                              <td>{formatNumber(quarterData[quarter][section].expectedOutcome)}</td>
+                              <td>
+                                <div className=" d-flex">
+                                  {formatNumber(quarterData[quarter][section].currentOutcome)}
+                                  <p
+                                    className={`${
+                                      outcomePercent >= 1 ? 'text-success' : 'text-danger'
+                                    } ml-2 mb-0 font-weight-medium`}
+                                  >
+                                    ({outcomePercent.toFixed(2)}%)
+                                  </p>
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>
