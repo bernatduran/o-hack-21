@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Ohpen.Executive.Dashboard.WebApi.Application;
 
 namespace Ohpen.Executive.Dashboard.WebApi
 {
@@ -32,6 +33,7 @@ namespace Ohpen.Executive.Dashboard.WebApi
                     .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()));
+            services.RegisterApplicationServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

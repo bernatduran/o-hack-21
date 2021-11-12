@@ -1,47 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Ohpen.Executive.Dashboard.WebApi.Application.Interfaces;
 using Ohpen.Executive.Dashboard.WebApi.Models;
+using Ohpen.Executive.Dashboard.WebApi.Services.Mapper;
 
 namespace Ohpen.Executive.Dashboard.WebApi.Controllers
 {
     [Route("quarterly-finance-projections")]
     public class QuarterlyFinanceProjectionsController : ControllerBase
     {
+        private readonly IFinanceManager _financeManager;
+
+        public QuarterlyFinanceProjectionsController(IFinanceManager financeManager)
+        {
+            _financeManager = financeManager;
+        }
+
         // GET quarterly-finance-projections\{year}
         [HttpGet("{year}")]
-        public QuartelyProjectionsDto Get([FromRoute] string year)
+        public QuarterlyProjectionDto Get([FromRoute] string year)
         {
-            return new QuartelyProjectionsDto()
-            {
-                Q1 = new QuarterlyDataDto
-                {
-                    ExpectedIncome = 2400000M,
-                    CurrentIncome = 1583392M,
-                    ExpectedOutcome = 1350000M,
-                    CurrentOutcome = 1235621M
-                },
-                Q2 = new QuarterlyDataDto
-                {
-                    ExpectedIncome = 2400000M,
-                    CurrentIncome = 1583392M,
-                    ExpectedOutcome = 1350000M,
-                    CurrentOutcome = 1235621M
-                },
-                Q3 = new QuarterlyDataDto
-                {
-                    ExpectedIncome = 2400000M,
-                    CurrentIncome = 1583392M,
-                    ExpectedOutcome = 1350000M,
-                    CurrentOutcome = 1235621M
-                },
-                Q4 = new QuarterlyDataDto
-                {
-                    ExpectedIncome = 2400000M,
-                    CurrentIncome = 1583392M,
-                    ExpectedOutcome = 1350000M,
-                    CurrentOutcome = 1235621M
-                },
-            };
+            return _financeManager.GetQuarterlyProjectionsForYear(year).MapToDto();
         }
     }
 

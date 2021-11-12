@@ -9,4 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="6.1.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ohpen.Executive.Dashboard.WebApi.Application\Ohpen.Executive.Dashboard.WebApi.Application.csproj" />
+  </ItemGroup>
 </Project>

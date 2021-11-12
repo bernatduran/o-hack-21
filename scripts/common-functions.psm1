@@ -8,7 +8,8 @@ function ExecuteTerraformAction {
     
     begin {
         $projects = @(
-            "Ohpen.Executive.Dashboard.WebApi"
+            "Ohpen.Executive.Dashboard.WebApi",
+            "Ohpen.Executive.Dashboard.WebApi.Application"
         )
 
         $NET_CORE_APP_31 = "netcoreapp3.1"
