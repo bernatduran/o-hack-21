@@ -1,0 +1,60 @@
+{
+  "score": "1590",
+  "cost": "",
+  "manHours": "",
+  "range": ["01/01/2021","01/01/2022"],
+  "timeLine": [
+    {
+      "design": "30",
+      "done": "10",
+      "inProgress": "5",
+      "toDo": "75"
+    }
+  ], 
+  "release" : [
+      {
+        "domainName" : "OFS",  
+        "releaseName" : "Rel 15.1",
+        "score" : "20",
+        "toDo" : "20",
+        "Done" : "40",
+        "InProgress" : "40"
+      },
+      {
+        "domainName" : "OFS",  
+        "releaseName" : "Rel 15.1",
+        "score" : "60",
+        "toDo" : "10",
+        "Done" : "30",
+        "InProgress" : "60"
+      }
+  ], 
+  "epics": [
+      {
+        "epicId":"eED-2342",
+        "epicName":"Create the most amazing ohpen realitime dashbaord",
+        "epicScore":"209",
+        "stories" : [
+            {
+                "storyId":"eEDs-123",
+                "storyName":"Crate infrastructure",
+                "storyPoint":"3",
+                "status":"Done"
+            },
+            {
+                "storyId":"eEDs-124",
+                "storyName":"Crate Main app structure",
+                "storyPoint":"8",
+                "status":"InProgress"
+            },
+            {
+                "storyId":"eEDs-5",
+                "storyName":"Product dasboard",
+                "storyPoint":"12",
+                "status":"ToDo"
+            }
+        ]
+      }
+  ]
+  
+}
