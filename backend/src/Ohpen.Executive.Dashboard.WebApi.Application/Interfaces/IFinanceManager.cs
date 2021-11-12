@@ -7,6 +7,6 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Interfaces
 {
     public interface IFinanceManager
     {
-        QuarterlyProjection GetQuarterlyProjectionsForYear(string year);
+        QuarterlyProjection GetQuarterlyProjectionsForYear(int year);
     }
 }

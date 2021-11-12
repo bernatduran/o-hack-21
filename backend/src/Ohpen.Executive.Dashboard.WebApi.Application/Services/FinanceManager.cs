@@ -9,7 +9,14 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Services
 {
     public class FinanceManager: IFinanceManager
     {
-        public QuarterlyProjection GetQuarterlyProjectionsForYear(string year)
+        private readonly IDateManager _dateManager;
+
+        public FinanceManager(IDateManager dateManager)
+        {
+            _dateManager = dateManager;
+        }
+
+        public QuarterlyProjection GetQuarterlyProjectionsForYear(int year)
         {
             return new QuarterlyProjection()
             {
@@ -20,9 +27,9 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Services
             };
         }
 
-        private Dictionary<string, QuarterlyData> GetQuarterlyProjections(string year, int quarter)
+        private Dictionary<string, QuarterlyData> GetQuarterlyProjections(int year, int quarter)
         {
-
+            var dataRange = _dateManager.GetQuarterDateRange(year, quarter);
             return new Dictionary<string, QuarterlyData>()
             {
                 {
@@ -63,5 +70,6 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Services
                 }
             };
         }
+
     }
 }

@@ -9,6 +9,7 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application
     {
         public static void RegisterApplicationServices(this IServiceCollection services)
         {
+            services.RegisterDateManager();
             services.RegisterFinanceManager();
         }
 
@@ -17,5 +18,9 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application
             services.AddTransient<IFinanceManager, FinanceManager>();
         }
 
+        static void RegisterDateManager(this IServiceCollection services)
+        {
+            services.AddTransient<IDateManager, DateManager>();
+        }
     }
 }
