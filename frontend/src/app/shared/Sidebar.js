@@ -112,28 +112,6 @@ class Sidebar extends Component {
                       <Trans>Home</Trans>
                     </Link>
                   </li>
-                  <li className="nav-item">
-                    {' '}
-                    <Link
-                      className={
-                        this.isPathActive('/finance/costs') ? 'nav-link active' : 'nav-link'
-                      }
-                      to="/finance/costs"
-                    >
-                      <Trans>Costs</Trans>
-                    </Link>
-                  </li>
-                  <li className="nav-item">
-                    {' '}
-                    <Link
-                      className={
-                        this.isPathActive('/finance/income') ? 'nav-link active' : 'nav-link'
-                      }
-                      to="/finance/income"
-                    >
-                      <Trans>Income</Trans>
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </Collapse>
