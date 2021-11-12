@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     getBalance().then(data => setData(data));
-    // getQuarters().then(data => setQuarterData(data));
+    getQuarters().then(data => setQuarterData(data));
   }, []);
 
   return (
