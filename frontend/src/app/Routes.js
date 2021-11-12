@@ -12,6 +12,7 @@ const ProductHome = lazy(() => import('./pages/product/Home'));
 const HrHome = lazy(() => import('./pages/hr/Home'));
 
 const SalesHome = lazy(() => import('./pages/sales/Home'));
+const NewSale = lazy(() => import('./pages/sales/NewSale'));
 
 class Routes extends Component {
   render() {
@@ -20,12 +21,14 @@ class Routes extends Component {
         <Switch>
           <Route exact path="/dashboard" component={Dashboard} />
 
-          <Route path="/finance/" component={FinanceHome} />
+          <Route path="/finance" component={FinanceHome} />
 
           <Route path="/product" component={ProductHome} />
 
           <Route path="/hr" component={HrHome} />
 
+          <Route path="/sales/project/new" component={NewSale} />
+          <Route path="/sales/project/:id" component={SalesHome} />
           <Route path="/sales" component={SalesHome} />
 
           <Redirect to="/dashboard" />

@@ -1,0 +1,45 @@
+export const initialData = {
+  currentProspects: [
+    {
+      id: 1,
+      projectName: 'The DEVOPS Project',
+      location: 'Amsterdam',
+      lead: 'Chuck Norris',
+      launchDate: 'January 2025',
+      rag: 'green',
+    },
+    {
+      id: 2,
+      projectName: 'Newsletter',
+      location: 'Berlin',
+      lead: 'Ron Burgundy',
+      launchDate: 'August 2028',
+      rag: 'amber',
+    },
+    {
+      id: 3,
+      projectName: 'Psycho',
+      location: 'London',
+      lead: 'Patrick Bateman',
+      launchDate: 'December 2025',
+      rag: 'green',
+    },
+    {
+      id: 4,
+      projectName: 'Quarter Pounder',
+      location: 'Paris',
+      lead: 'Jules Winnfield',
+      launchDate: 'February 2026',
+      rag: 'red',
+    },
+    {
+      id: 5,
+      projectName: 'Bogeyman',
+      location: 'Viena',
+      lead: 'Keyser Söze',
+      launchDate: 'August 2027',
+      rag: 'amber',
+    },
+  ],
+  currentProjects: [],
+};
