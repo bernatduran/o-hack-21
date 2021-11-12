@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Ohpen.Executive.Dashboard.WebApi.Application.Interfaces;
+using Ohpen.Executive.Dashboard.WebApi.Exceptions;
 using Ohpen.Executive.Dashboard.WebApi.Models;
 using Ohpen.Executive.Dashboard.WebApi.Services.Mapper;
 
@@ -23,7 +24,16 @@ namespace Ohpen.Executive.Dashboard.WebApi.Controllers
         [HttpGet("{year}")]
         public QuarterlyProjectionDto Get([FromRoute] string year)
         {
-            int yearFromString = _dateManager.YearFromString(year);
+            int yearFromString = 0;
+            try
+            {
+                yearFromString = _dateManager.YearFromString(year);
+            }
+            catch (FormatException e)
+            {
+                throw new BadRequestException("Year was incorrectly formatted");
+            }
+
             return _financeManager.GetQuarterlyProjectionsForYear(yearFromString).MapToDto();
         }
     }
