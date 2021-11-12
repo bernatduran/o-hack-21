@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { Doughnut } from 'react-chartjs-2';
 import Slider from 'react-slick';
-import { TodoListComponent } from '../apps/TodoList';
 import { VectorMap } from 'react-jvectormap';
 
 const mapData = {
@@ -371,7 +370,7 @@ export class Dashboard extends Component {
                         </td>
                         <td>
                           <div className="d-flex">
-                            <img src={require('../../assets/images/faces/face1.jpg')} alt="face" />
+                            <img src={'/assets/images/faces/face1.jpg'} alt="face" />
                             <span className="pl-2">Henry Klein</span>
                           </div>
                         </td>
@@ -395,7 +394,7 @@ export class Dashboard extends Component {
                         </td>
                         <td>
                           <div className="d-flex">
-                            <img src={require('../../assets/images/faces/face2.jpg')} alt="face" />
+                            <img src={'/assets/images/faces/face2.jpg'} alt="face" />
                             <span className="pl-2">Estella Bryan</span>
                           </div>
                         </td>
@@ -419,7 +418,7 @@ export class Dashboard extends Component {
                         </td>
                         <td>
                           <div className="d-flex">
-                            <img src={require('../../assets/images/faces/face5.jpg')} alt="face" />
+                            <img src={'/assets/images/faces/face5.jpg'} alt="face" />
                             <span className="pl-2">Lucy Abbott</span>
                           </div>
                         </td>
@@ -443,7 +442,7 @@ export class Dashboard extends Component {
                         </td>
                         <td>
                           <div className="d-flex">
-                            <img src={require('../../assets/images/faces/face3.jpg')} alt="face" />
+                            <img src={'/assets/images/faces/face3.jpg'} alt="face" />
                             <span className="pl-2">Peter Gill</span>
                           </div>
                         </td>
@@ -467,7 +466,7 @@ export class Dashboard extends Component {
                         </td>
                         <td>
                           <div className="d-flex">
-                            <img src={require('../../assets/images/faces/face4.jpg')} alt="face" />
+                            <img src={'/assets/images/faces/face4.jpg'} alt="face" />
                             <span className="pl-2">Sallie Reyes</span>
                           </div>
                         </td>
@@ -499,7 +498,7 @@ export class Dashboard extends Component {
                   <div className="preview-item border-bottom">
                     <div className="preview-thumbnail">
                       <img
-                        src={require('../../assets/images/faces/face6.jpg')}
+                        src={'/assets/images/faces/face6.jpg'}
                         alt="face"
                         className="rounded-circle"
                       />
@@ -517,7 +516,7 @@ export class Dashboard extends Component {
                   <div className="preview-item border-bottom">
                     <div className="preview-thumbnail">
                       <img
-                        src={require('../../assets/images/faces/face8.jpg')}
+                        src={'/assets/images/faces/face8.jpg'}
                         alt="face"
                         className="rounded-circle"
                       />
@@ -535,7 +534,7 @@ export class Dashboard extends Component {
                   <div className="preview-item border-bottom">
                     <div className="preview-thumbnail">
                       <img
-                        src={require('../../assets/images/faces/face9.jpg')}
+                        src={'/assets/images/faces/face9.jpg'}
                         alt="face"
                         className="rounded-circle"
                       />
@@ -553,7 +552,7 @@ export class Dashboard extends Component {
                   <div className="preview-item border-bottom">
                     <div className="preview-thumbnail">
                       <img
-                        src={require('../../assets/images/faces/face11.jpg')}
+                        src={'/assets/images/faces/face11.jpg'}
                         alt="face"
                         className="rounded-circle"
                       />
@@ -578,22 +577,13 @@ export class Dashboard extends Component {
                 <h4 className="card-title">Portfolio Slide</h4>
                 <Slider className="portfolio-slider" {...this.sliderSettings}>
                   <div className="item">
-                    <img
-                      src={require('../../assets/images/dashboard/Rectangle.jpg')}
-                      alt="carousel-item"
-                    />
+                    <img src={'/assets/images/dashboard/Rectangle.jpg'} alt="carousel-item" />
                   </div>
                   <div className="item">
-                    <img
-                      src={require('../../assets/images/dashboard/Img_5.jpg')}
-                      alt="carousel-item"
-                    />
+                    <img src={'/assets/images/dashboard/Img_5.jpg'} alt="carousel-item" />
                   </div>
                   <div className="item">
-                    <img
-                      src={require('../../assets/images/dashboard/img_6.jpg')}
-                      alt="carousel-item"
-                    />
+                    <img src={'/assets/images/dashboard/img_6.jpg'} alt="carousel-item" />
                   </div>
                 </Slider>
                 <div className="d-flex py-4">
@@ -601,7 +591,7 @@ export class Dashboard extends Component {
                     <div className="preview-item p-0">
                       <div className="preview-thumbnail">
                         <img
-                          src={require('../../assets/images/faces/face12.jpg')}
+                          src={'/assets/images/faces/face12.jpg'}
                           className="rounded-circle"
                           alt="face"
                         />
@@ -636,7 +626,6 @@ export class Dashboard extends Component {
             <div className="card">
               <div className="card-body">
                 <h4 className="card-title">To do list</h4>
-                <TodoListComponent />
               </div>
             </div>
           </div>

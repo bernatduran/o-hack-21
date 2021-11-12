@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Spinner from '../app/shared/Spinner';
 
-const Dashboard = lazy(() => import('./dashboard/Dashboard'));
+const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'));
 
 const FinanceHome = lazy(() => import('./pages/finance/Home'));
 
