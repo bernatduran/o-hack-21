@@ -1,29 +1,31 @@
 {
-  "CurrentBalance": "323k €",
+  "CurrentBalance": 0,
   "PlanStatusOverview": {
-    "Q1": {
-      "ExpectedIncome": "80k €",
-      "CurrentIncome": "50k €",
-      "ExpectedOutcome": "60k €",
-      "CurrentOutcome": "75k €"
-    },
-    "Q2": {
-      "ExpectedIncome": "80k €",
-      "CurrentIncome": "50k €",
-      "ExpectedOutcome": "60k €",
-      "CurrentOutcome": "75k €"
-    },
-    "Q3": {
-      "ExpectedIncome": "80k €",
-      "CurrentIncome": "50k €",
-      "ExpectedOutcome": "60k €",
-      "CurrentOutcome": "75k €"
-    },
-    "Q4": {
-      "ExpectedIncome": "80k €",
-      "CurrentIncome": "50k €",
-      "ExpectedOutcome": "60k €",
-      "CurrentOutcome": "75k €"
+    "q1": {
+      "total": {
+        "ExpectedIncome": 0,
+        "CurrentIncome": 0,
+        "ExpectedOutcome": 0,
+        "CurrentOutcome": 0
+      },
+      "hr": {
+        "ExpectedIncome": 360000,
+        "CurrentIncome": 238000,
+        "ExpectedOutcome": 425000,
+        "CurrentOutcome": 935000
+      },
+      "realState": {
+        "ExpectedIncome": 0,
+        "CurrentIncome": 0,
+        "ExpectedOutcome": 0,
+        "CurrentOutcome": 0
+      },
+      "services": {
+        "ExpectedIncome": 0,
+        "CurrentIncome": 0,
+        "ExpectedOutcome": 0,
+        "CurrentOutcome": 0
+      }
     }
   }
 }
