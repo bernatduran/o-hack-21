@@ -1,6 +1,4 @@
 {
-  "CurrentBalance": 0,
-  "PlanStatusOverview": {
     "q1": {
       "total": {
         "ExpectedIncome": 0,
@@ -28,4 +26,3 @@
       }
     }
   }
-}
