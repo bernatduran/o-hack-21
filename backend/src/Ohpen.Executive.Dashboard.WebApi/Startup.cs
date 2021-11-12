@@ -27,6 +27,11 @@ namespace Ohpen.Executive.Dashboard.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options => options.AddPolicy(Constants.AllowAnyOriginPolicyName,
+                builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -42,6 +47,8 @@ namespace Ohpen.Executive.Dashboard.WebApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(Constants.AllowAnyOriginPolicyName);
 
             app.UseEndpoints(endpoints =>
             {

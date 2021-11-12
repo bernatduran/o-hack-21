@@ -58,3 +58,27 @@ resource "aws_iam_role_policy_attachment" "web_api_lambda_vpc_access_execution_r
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
 }
 
+resource "aws_iam_role_policy_attachment" "doxtra_lambda_dynamo_case_access" {
+  role       = aws_iam_role.doxtra_lambda_role.name
+  policy_arn = aws_iam_policy.doxtra_case_table_policy_full_access.arn
+}
+
+resource "aws_iam_role_policy_attachment" "doxtra_lambda_dynamo_step_access" {
+  role       = aws_iam_role.doxtra_lambda_role.name
+  policy_arn = aws_iam_policy.doxtra_step_table_policy_full_access.arn
+}
+
+resource "aws_iam_role_policy_attachment" "doxtra_lambda_dynamo_source_access" {
+  role       = aws_iam_role.doxtra_lambda_role.name
+  policy_arn = aws_iam_policy.doxtra_source_table_policy_full_access.arn
+}
+
+resource "aws_iam_role_policy_attachment" "doxtra_sqs_queue_access" {
+  role       = aws_iam_role.doxtra_lambda_role.name
+  policy_arn = module.case_sqs.case_queue_policy_publish_arn
+}
+
+resource "aws_iam_role_policy_attachment" "doxtra_webapi_docs_bucket_access" {
+  role       = aws_iam_role.doxtra_lambda_role.name
+  policy_arn = aws_iam_policy.hubsa_docs_bucket_policy.arn
+}
