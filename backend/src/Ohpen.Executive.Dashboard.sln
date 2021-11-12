@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ohpen.Executive.Dashboard.WebApi", "Ohpen.Executive.Dashboard.WebApi\Ohpen.Executive.Dashboard.WebApi.csproj", "{6BDE1707-7FDE-4926-8955-3C023446126E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ohpen.Executive.Dashboard.WebApi.Tests", "Ohpen.Executive.Dashboard.WebApi.Tests\Ohpen.Executive.Dashboard.WebApi.Tests.csproj", "{B57A5D49-4B2D-4650-A7A8-A126A18BE528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ohpen.Executive.Dashboard.WebApi.Tests", "..\test\Ohpen.Executive.Dashboard.WebApi.Tests\Ohpen.Executive.Dashboard.WebApi.Tests.csproj", "{B57A5D49-4B2D-4650-A7A8-A126A18BE528}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
