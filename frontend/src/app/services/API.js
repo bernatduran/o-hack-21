@@ -1,4 +1,4 @@
-const baseURL = 'https://0fbg13ctg1.execute-api.eu-west-1.amazonaws.com/Prod';
+const baseURL = 'https://0zdu9dnzyh.execute-api.eu-west-1.amazonaws.com/Prod';
 
 export const getBalance = () => {
   return fetch(baseURL + '/balance')
