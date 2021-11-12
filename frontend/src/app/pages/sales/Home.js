@@ -1,50 +1,6 @@
 import React, { useState } from 'react';
 
-const initialData = {
-  currentProspects: [
-    {
-      id: 1,
-      projectName: 'The DEVOPS Project',
-      location: 'Amsterdam',
-      lead: 'Chuck Norris',
-      launchDate: 'January 2025',
-      rag: 'green',
-    },
-    {
-      id: 2,
-      projectName: 'Newsletter',
-      location: 'Berlin',
-      lead: 'Ron Burgundy',
-      launchDate: 'August 2028',
-      rag: 'amber',
-    },
-    {
-      id: 3,
-      projectName: 'Psycho',
-      location: 'London',
-      lead: 'Patrick Bateman',
-      launchDate: 'December 2025',
-      rag: 'green',
-    },
-    {
-      id: 4,
-      projectName: 'Quarter Pounder',
-      location: 'Paris',
-      lead: 'Jules Winnfield',
-      launchDate: 'February 2026',
-      rag: 'red',
-    },
-    {
-      id: 5,
-      projectName: 'Bogeyman',
-      location: 'Viena',
-      lead: 'Keyser Söze',
-      launchDate: 'August 2027',
-      rag: 'amber',
-    },
-  ],
-  currentProjects: [],
-};
+import { initialData } from '../../constants/sales';
 
 const Home = () => {
   const [data, setData] = useState(initialData);
@@ -63,6 +19,14 @@ const Home = () => {
         </nav>
       </div>
       <div className="row ">
+        <div className="col-12 grid-margin d-flex justify-content-end">
+          <button className="btn btn-success create-new-button mr-2">
+            <a href="/sales/project/new">Create new prospect</a>
+          </button>
+          <button className="btn btn-success create-new-button">
+            <a href="/sales/project/new">Create new project</a>
+          </button>
+        </div>
         <div className="col-12 grid-margin">
           <div className="card">
             <div className="card-body">

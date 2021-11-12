@@ -174,9 +174,7 @@ class Sidebar extends Component {
                   <li className="nav-item">
                     {' '}
                     <Link
-                      className={
-                        this.isPathActive('/hr/basic-table') ? 'nav-link active' : 'nav-link'
-                      }
+                      className={this.isPathActive('/hr') ? 'nav-link active' : 'nav-link'}
                       to="/hr"
                     >
                       <Trans>Home</Trans>
@@ -210,10 +208,8 @@ class Sidebar extends Component {
                   <li className="nav-item">
                     {' '}
                     <Link
-                      className={
-                        this.isPathActive('/sales/chart-js') ? 'nav-link active' : 'nav-link'
-                      }
-                      to="/sales/chart-js"
+                      className={this.isPathActive('/sales') ? 'nav-link active' : 'nav-link'}
+                      to="/sales"
                     >
                       <Trans>Home</Trans>
                     </Link>
