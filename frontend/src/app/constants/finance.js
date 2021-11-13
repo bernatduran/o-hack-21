@@ -12,13 +12,19 @@ export const initialQarters = {
       expectedOutcome: 0,
       currentOutcome: 0,
     },
+    aws: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
     hr: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
       currentOutcome: 0,
     },
-    realState: {
+    realEstate: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
@@ -38,13 +44,19 @@ export const initialQarters = {
       expectedOutcome: 0,
       currentOutcome: 0,
     },
+    aws: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
     hr: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
       currentOutcome: 0,
     },
-    realState: {
+    realEstate: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
@@ -64,13 +76,19 @@ export const initialQarters = {
       expectedOutcome: 0,
       currentOutcome: 0,
     },
+    aws: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
     hr: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
       currentOutcome: 0,
     },
-    realState: {
+    realEstate: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
@@ -90,13 +108,19 @@ export const initialQarters = {
       expectedOutcome: 0,
       currentOutcome: 0,
     },
+    aws: {
+      expectedIncome: 0,
+      currentIncome: 0,
+      expectedOutcome: 0,
+      currentOutcome: 0,
+    },
     hr: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
       currentOutcome: 0,
     },
-    realState: {
+    realEstate: {
       expectedIncome: 0,
       currentIncome: 0,
       expectedOutcome: 0,
@@ -112,4 +136,4 @@ export const initialQarters = {
 };
 
 export const quarters = ['q1', 'q2', 'q3', 'q4'];
-export const sections = ['hr', 'realState', 'services'];
+export const sections = ['hr', 'realEstate', 'aws', 'services'];
