@@ -37,6 +37,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: us-east-1
     steps:
+      - uses: actions/checkout@v2
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
       - name: 'Terraform Init'
@@ -44,7 +45,7 @@ jobs:
         with:
           tf_actions_version: 0.15.0
           tf_actions_subcommand: 'init'
-          tf_actions_working_dir: '.'
+          tf_actions_working_dir: 'terraform'
           tf_actions_comment: true
           args: '-var="env=dev"'
       - name: 'Terraform Plan'
@@ -52,6 +53,6 @@ jobs:
         with:
           tf_actions_version: 0.15.0
           tf_actions_subcommand: 'plan'
-          tf_actions_working_dir: '.'
+          tf_actions_working_dir: 'terraform'
           tf_actions_comment: true
           args: '-var="env=dev"'
