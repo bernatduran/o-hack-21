@@ -53,7 +53,27 @@ resource "aws_iam_role_policy_attachment" "web_api_lambda_basic_execution_role" 
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-resource "aws_iam_role_policy_attachment" "web_api_lambda_vpc_access_execution_role" {
+resource "aws_iam_role_policy_attachment" "web_api_lambda_access_on_cost_explorer" {
   role       = aws_iam_role.web_api_lambda_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+  policy_arn = aws_iam_policy.cost_explorer.arn
+}
+
+resource "aws_iam_policy" "cost_explorer" {
+  name   = "${local.web_api_lambda_name}-cost-policy"
+  policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ce:*"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}
+POLICY
 }
