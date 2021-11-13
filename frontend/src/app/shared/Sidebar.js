@@ -33,7 +33,7 @@ class Sidebar extends Component {
     });
 
     const dropdownPaths = [
-      { path: '/apps', state: 'appsMenuOpen' },
+      { path: '/dashboard', state: 'dashboardMenuOpen' },
       { path: '/finance', state: 'financeMenuOpen' },
       { path: '/product', state: 'productMenuOpen' },
       { path: '/hr', state: 'hrMenuOpen' },
@@ -73,14 +73,67 @@ class Sidebar extends Component {
               this.isPathActive('/dashboard') ? 'nav-item menu-items active' : 'nav-item menu-items'
             }
           >
-            <Link className="nav-link" to="/dashboard">
+            <div
+              className={this.state.dashboardMenuOpen ? 'nav-link menu-expanded' : 'nav-link'}
+              onClick={() => this.toggleMenuState('dashboardMenuOpen')}
+              data-toggle="collapse"
+            >
               <span className="menu-icon">
                 <i className="mdi mdi-speedometer"></i>
               </span>
               <span className="menu-title">
                 <Trans>Dashboard</Trans>
               </span>
-            </Link>
+              <i className="menu-arrow"></i>
+            </div>
+            <Collapse in={this.state.dashboardMenuOpen}>
+              <div>
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item">
+                    <Link
+                      className={
+                        this.isPathActive('/dashboard/strategy') ? 'nav-link active' : 'nav-link'
+                      }
+                      to="/dashboard/strategy"
+                    >
+                      <Trans>Strategic Management</Trans>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className={
+                        this.isPathActive('/dashboard/it') ? 'nav-link active' : 'nav-link'
+                      }
+                      to="/dashboard/it"
+                    >
+                      <Trans>IT Management</Trans>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className={
+                        this.isPathActive('/dashboard/infrastructure')
+                          ? 'nav-link active'
+                          : 'nav-link'
+                      }
+                      to="/dashboard/infrastructure"
+                    >
+                      <Trans>Infrastructure Management</Trans>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className={
+                        this.isPathActive('/dashboard/aws') ? 'nav-link active' : 'nav-link'
+                      }
+                      to="/dashboard/aws"
+                    >
+                      <Trans>AWS Management</Trans>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </Collapse>
           </li>
           <li
             className={

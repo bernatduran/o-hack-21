@@ -3,7 +3,10 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Spinner from '../app/shared/Spinner';
 
-const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'));
+const StrategicDashboard = lazy(() => import('./pages/dashboard/StrategicDashboard'));
+const ItDashboard = lazy(() => import('./pages/dashboard/ItDashboard'));
+const AwsDashboard = lazy(() => import('./pages/dashboard/AwsDashboard'));
+const InfrastructureDashboard = lazy(() => import('./pages/dashboard/InfrastructureDashboard'));
 
 const FinanceHome = lazy(() => import('./pages/finance/Home'));
 
@@ -20,7 +23,10 @@ class Routes extends Component {
     return (
       <Suspense fallback={<Spinner />}>
         <Switch>
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard/strategy" component={StrategicDashboard} />
+          <Route exact path="/dashboard/it" component={ItDashboard} />
+          <Route exact path="/dashboard/aws" component={AwsDashboard} />
+          <Route exact path="/dashboard/infrastructure" component={InfrastructureDashboard} />
 
           <Route path="/finance" component={FinanceHome} />
 
@@ -32,7 +38,7 @@ class Routes extends Component {
           <Route path="/sales/project/:id" component={SalesDetail} />
           <Route path="/sales" component={SalesHome} />
 
-          <Redirect to="/dashboard" />
+          <Redirect to="/dashboard/strategy" />
         </Switch>
       </Suspense>
     );
