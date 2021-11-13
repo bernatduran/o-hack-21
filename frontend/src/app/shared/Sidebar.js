@@ -140,136 +140,56 @@ class Sidebar extends Component {
               this.isPathActive('/finance') ? 'nav-item menu-items active' : 'nav-item menu-items'
             }
           >
-            <div
-              className={this.state.financeMenuOpen ? 'nav-link menu-expanded' : 'nav-link'}
-              onClick={() => this.toggleMenuState('financeMenuOpen')}
-              data-toggle="collapse"
-            >
+            <Link className="nav-link" to="/finance">
               <span className="menu-icon">
                 <i className="mdi mdi-currency-usd"></i>
               </span>
               <span className="menu-title">
                 <Trans>Finance</Trans>
               </span>
-              <i className="menu-arrow"></i>
-            </div>
-            <Collapse in={this.state.financeMenuOpen}>
-              <div>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item">
-                    {' '}
-                    <Link
-                      className={this.isPathActive('/finance') ? 'nav-link active' : 'nav-link'}
-                      to="/finance"
-                    >
-                      <Trans>Home</Trans>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </Collapse>
+            </Link>
           </li>
           <li
             className={
               this.isPathActive('/product') ? 'nav-item menu-items active' : 'nav-item menu-items'
             }
           >
-            <div
-              className={this.state.productMenuOpen ? 'nav-link menu-expanded' : 'nav-link'}
-              onClick={() => this.toggleMenuState('productMenuOpen')}
-              data-toggle="collapse"
-            >
+            <Link className="nav-link" to="/product">
               <span className="menu-icon">
                 <i className="mdi mdi-dropbox"></i>
               </span>
               <span className="menu-title">
                 <Trans>Product</Trans>
               </span>
-              <i className="menu-arrow"></i>
-            </div>
-            <Collapse in={this.state.productMenuOpen}>
-              <div>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item">
-                    {' '}
-                    <Link
-                      className={this.isPathActive('/product') ? 'nav-link active' : 'nav-link'}
-                      to="/product"
-                    >
-                      <Trans>Home</Trans>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </Collapse>
+            </Link>
           </li>
           <li
             className={
               this.isPathActive('/hr') ? 'nav-item menu-items active' : 'nav-item menu-items'
             }
           >
-            <div
-              className={this.state.hrMenuOpen ? 'nav-link menu-expanded' : 'nav-link'}
-              onClick={() => this.toggleMenuState('hrMenuOpen')}
-              data-toggle="collapse"
-            >
+            <Link className="nav-link" to="/hr">
               <span className="menu-icon">
-                <i className="mdi mdi-account-multiple-outline"></i>
+                <i className="mdi mdi-dropbox"></i>
               </span>
               <span className="menu-title">
                 <Trans>HR</Trans>
               </span>
-              <i className="menu-arrow"></i>
-            </div>
-            <Collapse in={this.state.hrMenuOpen}>
-              <div>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item">
-                    {' '}
-                    <Link
-                      className={this.isPathActive('/hr') ? 'nav-link active' : 'nav-link'}
-                      to="/hr"
-                    >
-                      <Trans>Home</Trans>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </Collapse>
+            </Link>
           </li>
           <li
             className={
               this.isPathActive('/sales') ? 'nav-item menu-items active' : 'nav-item menu-items'
             }
           >
-            <div
-              className={this.state.salesMenuOpen ? 'nav-link menu-expanded' : 'nav-link'}
-              onClick={() => this.toggleMenuState('salesMenuOpen')}
-              data-toggle="collapse"
-            >
+            <Link className="nav-link" to="/sales">
               <span className="menu-icon">
-                <i className="mdi mdi-cash-multiple"></i>
+                <i className="mdi mdi-dropbox"></i>
               </span>
               <span className="menu-title">
                 <Trans>Sales</Trans>
               </span>
-              <i className="menu-arrow"></i>
-            </div>
-            <Collapse in={this.state.salesMenuOpen}>
-              <div>
-                <ul className="nav flex-column sub-menu">
-                  <li className="nav-item">
-                    {' '}
-                    <Link
-                      className={this.isPathActive('/sales') ? 'nav-link active' : 'nav-link'}
-                      to="/sales"
-                    >
-                      <Trans>Home</Trans>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </Collapse>
+            </Link>
           </li>
         </ul>
       </nav>
