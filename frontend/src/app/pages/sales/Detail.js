@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { projectNames, salesDetail } from '../../constants/salesDetail';
 
 import { Form } from 'react-bootstrap';
+import { formatNumber } from '../../helpers/formatNumber';
 import { useParams } from 'react-router-dom';
 
 const Home = () => {
@@ -165,13 +166,60 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="card">
+          <div className="card  mb-4">
             <div className="card-body">
               <h3>Projected Infra</h3>
               <img
                 src={require('../../../assets/images/sales/aws-infra.png')}
                 style={{ width: '70%', margin: '0 15%' }}
               />
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-body">
+              <div className="row justify-content-between">
+                <h3 style={{ margin: 0 }}>Expected cost P.A.: </h3>
+                <h3 className="ml-5" style={{ margin: 0 }}>
+                  {formatNumber(
+                    (Object.keys(teamResources).reduce((acc, el) => +teamResources[el] + acc, 0) +
+                      Object.values(salesDetail.gapAnalysis.apiCalls).filter(Boolean).length) *
+                      15000 +
+                      50000
+                  )}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-12 grid-margin">
+          <div className="card">
+            <div className="card-body">
+              <div className="d-flex d-sm-block d-md-flex justify-content-between align-items-center mb-3">
+                <h3>Expected Cashflows</h3>
+                <h3>Total: {salesDetail.gapAnalysis.expectedCashflows.total} €</h3>
+              </div>
+
+              <ul style={{ listStyleType: 'none' }}>
+                {salesDetail.gapAnalysis.expectedCashflows.items.map(item => (
+                  <li key={item.id}>{item.description}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-12 grid-margin">
+          <div className="card">
+            <div className="card-body">
+              <div className="d-flex d-sm-block d-md-flex justify-content-between align-items-center mb-3">
+                <h3>Expected Phases</h3>
+              </div>
+              <ul style={{ listStyleType: 'none' }}>
+                {salesDetail.gapAnalysis.expectedPhases.map(item => (
+                  <li key={item.id}>
+                    {item.phase}: <span className="ml-3">{item.timeframe}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
