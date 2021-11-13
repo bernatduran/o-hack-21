@@ -1,13 +1,17 @@
 ﻿using System;
+using Amazon.CostExplorer;
 using Microsoft.Extensions.DependencyInjection;
+using Ohpen.Executive.Dashboard.Abstractions.Services;
+using Ohpen.Executive.Dashboard.Connectors.AwsBilling.Services;
 
 namespace Ohpen.Executive.Dashboard.Connectors.AwsBilling
 {
     public static class ServiceCollectionExtensions
     {
-        static void RegisterFinanceManager(this IServiceCollection services)
+        public static void RegisterAwsBilling(this IServiceCollection services)
         {
-            services.AddTransient<IFinanceManager, FinanceManager>();
+            services.AddSingleton<IAmazonCostExplorer, AmazonCostExplorerClient>();
+            services.AddSingleton<IFinanceStrategy, AwsCostExplorerFinanceStrategy>();
         }
 
     }

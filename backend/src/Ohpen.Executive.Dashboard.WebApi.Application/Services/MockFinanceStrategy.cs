@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Ohpen.Executive.Dashboard.Abstractions;
 using Ohpen.Executive.Dashboard.Abstractions.Services;
 using Ohpen.Executive.Dashboard.WebApi.Application.Models;
 
@@ -10,6 +9,13 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Services
 {
     internal class MockFinanceStrategy : IFinanceStrategy
     {
+        public MockFinanceStrategy()
+        {
+            Name = "mock";
+        }
+
+        public string Name { get; }
+
         public Task<QuarterlyData> GetFinanceForGroupAsync(string group, DateTime from, DateTime to)
         {
             var rnd = new Random();

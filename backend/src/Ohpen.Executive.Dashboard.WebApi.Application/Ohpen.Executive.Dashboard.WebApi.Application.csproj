@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Ohpen.Executive.Dashboard.Abstractions\Ohpen.Executive.Dashboard.Abstractions.csproj" />
+    <ProjectReference Include="..\Ohpen.Executive.Dashboard.Connectors.AwsBilling\Ohpen.Executive.Dashboard.Connectors.AwsBilling.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using Ohpen.Executive.Dashboard.Connectors.AwsBilling;
 using Ohpen.Executive.Dashboard.WebApi.Application.Interfaces;
 using Ohpen.Executive.Dashboard.WebApi.Application.Services;
 
@@ -15,6 +17,7 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application
 
         static void RegisterFinanceManager(this IServiceCollection services)
         {
+            services.RegisterAwsBilling();
             services.AddTransient<IFinanceManager, FinanceManager>();
         }
 
@@ -22,5 +25,7 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application
         {
             services.AddTransient<IDateManager, DateManager>();
         }
+
+
     }
 }

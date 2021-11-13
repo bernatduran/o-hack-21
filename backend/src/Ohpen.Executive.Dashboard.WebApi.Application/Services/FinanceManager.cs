@@ -16,10 +16,12 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Services
     public class FinanceManager: IFinanceManager
     {
         private readonly IDateManager _dateManager;
+        private readonly IEnumerable<IFinanceStrategy> _registeredStrategies;
 
-        public FinanceManager(IDateManager dateManager)
+        public FinanceManager(IDateManager dateManager, IEnumerable<IFinanceStrategy> registeredStrategies)
         {
             _dateManager = dateManager;
+            _registeredStrategies = registeredStrategies;
         }
 
         public QuarterlyProjection GetQuarterlyProjectionsForYear(int year)
@@ -57,13 +59,16 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Services
 
         private IFinanceStrategy GetStrategyForGroup(string group)
         {
-            IFinanceStrategy strategy = @group switch
+            IFinanceStrategy strategy = _registeredStrategies.FirstOrDefault(x => x.Name.Equals(group));
+            if (strategy is null)
             {
-                "hr" => new MockFinanceStrategyNoIncome(),
-                "realEstate" => new MockFinanceStrategyNoIncome(),
-                "aws" => new MockFinanceStrategy(),
-                _ => new MockFinanceStrategy()
-            };
+                strategy = @group switch
+                {
+                    "hr" => new MockFinanceStrategyNoIncome(),
+                    "realEstate" => new MockFinanceStrategyNoIncome(),
+                    _ => new MockFinanceStrategy()
+                };
+            }
 
             return strategy;
         }
