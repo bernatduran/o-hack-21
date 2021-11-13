@@ -12,7 +12,7 @@ resource "aws_lambda_function" "web_api_lambda" {
 
   environment {
     variables = {
-      AWS_ACCOUNT_ID                  = data.aws_caller_identity.current.account_id
+      AWS_ACCOUNT_ID = data.aws_caller_identity.current.account_id
     }
   }
   tracing_config {
