@@ -23,7 +23,7 @@ jobs:
         working-directory: backend/src
       - name: Package
         run: dotnet lambda package -c Release -f netcoreapp3.1 --project-location ".\Ohpen.Executive.Dashboard.WebApi" --output-package "..\..\artifacts\Ohpen.Executive.Dashboard.WebApi.zip"  
-        working-directory: backend/src/Ohpen.Executive.Dashboard.WebApi
+        working-directory: backend/src
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
