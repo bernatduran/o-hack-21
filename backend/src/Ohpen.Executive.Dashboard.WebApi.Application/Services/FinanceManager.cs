@@ -4,7 +4,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using Ohpen.Executive.Dashboard.Abstractions;
+using Ohpen.Executive.Dashboard.Abstractions.Services;
 using Ohpen.Executive.Dashboard.WebApi.Application.Interfaces;
 using Ohpen.Executive.Dashboard.WebApi.Application.Models;
 using Ohpen.Executive.Dashboard.WebApi.Models;
@@ -36,8 +38,9 @@ namespace Ohpen.Executive.Dashboard.WebApi.Application.Services
             var dataRange = _dateManager.GetQuarterDateRange(year, quarter);
             var financeGroups = GetFinanceGroupsWithStrategy();
             var quarterlyProjections = financeGroups.ToDictionary(
-                item => item.Key,
-                item => item.Value.GetFinanceForGroup(item.Key, dataRange.Item1, dataRange.Item2));
+                    item => item.Key,
+                    item => item.Value.GetFinanceForGroupAsync(item.Key, dataRange.Item1, dataRange.Item2).Result
+                );
             quarterlyProjections = AddTotal(quarterlyProjections);
             return quarterlyProjections;
         }
