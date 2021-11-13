@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Build DotNet
 on: [push]
 jobs:
   build:
@@ -18,6 +18,20 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
         working-directory: backend/src
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
+        working-directory: backend/src
+      - name: .NET Lambda build and deploy
+        uses: evalytica/dotnet-lambda-actions/deploy@v0.1.0
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+          DOTNET_LAMBDA_PACKAGE_NAME: latest.zip
+          DOTNET_LAMBDA_FUNCTION_HANDLER: Host::MyLambdaDomain.Host.LambdaEntryPoint::FunctionHandlerAsync
+          DOTNET_LAMBDA_FUNCTION_NAME: my-lambda-function-name
+          DOTNET_LAMBDA_S3_LOCATION: my-lambda-builds-bucket/my-lambda-function-name
+          DOTNET_LAMBDA_WORKING_DIR: ./src
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
