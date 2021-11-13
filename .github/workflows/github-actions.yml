@@ -18,3 +18,9 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
         working-directory: backend/src
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        working-directory: backend/src
+        with:
+          name: homework
+          path: Ohpen.Executive.Dashboard.WebApi.zip
