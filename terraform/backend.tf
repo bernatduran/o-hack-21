@@ -8,6 +8,6 @@ terraform {
     key     = "executive-dashboard.tfstate"
     region  = "eu-west-1"
     encrypt = true
-    profile = "948164585922_AdministratorAccess"
+
   }
 }
