@@ -370,5 +370,31 @@
 .create-new-button {
   a {
     color: white;
+    text-decoration: none;
+  }
+  background-color: #597564;
+  border: none;
+  &:hover {
+    background-color: #698a76;
+  }
+  &:active,
+  &:focus {
+    background-color: #698a76;
+  }
+}
+
+.bg-dark {
+  background-color: white !important;
+  border-color: #2c2e33;
+}
+
+.form-control {
+  color: black;
+}
+
+.btn-secondary {
+  background-color: #9db29b;
+  &:hover {
+    background-color: #a6bda4;
   }
 }
