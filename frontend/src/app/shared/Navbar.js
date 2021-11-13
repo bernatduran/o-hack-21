@@ -97,11 +97,6 @@ class Navbar extends Component {
                 </p>
               </Dropdown.Menu>
             </Dropdown>
-            <li className="nav-item d-none d-lg-block">
-              <a className="nav-link" href="!#" onClick={event => event.preventDefault()}>
-                <i className="mdi mdi-view-grid"></i>
-              </a>
-            </li>
             <Dropdown alignRight as="li" className="nav-item border-left">
               <Dropdown.Toggle as="a" className="nav-link count-indicator cursor-pointer">
                 <i className="mdi mdi-email"></i>
@@ -117,15 +112,6 @@ class Navbar extends Component {
                   onClick={evt => evt.preventDefault()}
                   className="preview-item"
                 >
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <img
-                        src={require('../../assets/images/faces/face4.jpg')}
-                        alt="profile"
-                        className="rounded-circle profile-pic"
-                      />
-                    </div>
-                  </div>
                   <div className="preview-item-content">
                     <p className="preview-subject ellipsis mb-1">
                       <Trans>Mark send you a message</Trans>
@@ -142,15 +128,6 @@ class Navbar extends Component {
                   onClick={evt => evt.preventDefault()}
                   className="preview-item"
                 >
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <img
-                        src={require('../../assets/images/faces/face2.jpg')}
-                        alt="profile"
-                        className="rounded-circle profile-pic"
-                      />
-                    </div>
-                  </div>
                   <div className="preview-item-content">
                     <p className="preview-subject ellipsis mb-1">
                       <Trans>Cregh send you a message</Trans>
@@ -167,15 +144,6 @@ class Navbar extends Component {
                   onClick={evt => evt.preventDefault()}
                   className="preview-item"
                 >
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <img
-                        src={require('../../assets/images/faces/face3.jpg')}
-                        alt="profile"
-                        className="rounded-circle profile-pic"
-                      />
-                    </div>
-                  </div>
                   <div className="preview-item-content">
                     <p className="preview-subject ellipsis mb-1">
                       <Trans>Profile picture updated</Trans>
@@ -273,7 +241,7 @@ class Navbar extends Component {
                     alt="profile"
                   />
                   <p className="mb-0 d-none d-sm-block navbar-profile-name">
-                    <Trans>Henry Klein</Trans>
+                    <Trans>Matthijs Aler</Trans>
                   </p>
                   <i className="mdi mdi-menu-down d-none d-sm-block"></i>
                 </div>

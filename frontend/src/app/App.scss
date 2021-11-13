@@ -64,11 +64,3 @@
 @import '../assets/styles/sidebar';
 @import '../assets/styles/footer';
 @import '../assets/styles/layout';
-
-a {
-  text-decoration: underline;
-  color: white;
-  &:hover {
-    color: white;
-  }
-}
