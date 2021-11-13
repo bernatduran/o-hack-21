@@ -19,13 +19,12 @@ namespace Ohpen.Executive.Dashboard.WebApi.Tests
     public class ValuesControllerTests
     {
 
-
         [Fact]
         public async Task TestGet()
         {
             var lambdaFunction = new LambdaEntryPoint();
 
-            var requestStr = File.ReadAllText("./SampleRequests/ValuesController-Get.json");
+            var requestStr = File.ReadAllText("./SampleRequests/BalanceController-Get.json");
             var request = JsonConvert.DeserializeObject<APIGatewayProxyRequest>(requestStr);
             var context = new TestLambdaContext();
             var response = await lambdaFunction.FunctionHandlerAsync(request, context);
