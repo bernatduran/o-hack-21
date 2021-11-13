@@ -34,7 +34,7 @@ const Home = () => {
           <div className="card">
             <div className="card-body">
               <h3>Gap analysis</h3>
-              <h4 className="mt-4">API Calls</h4>
+              <h4 className="mt-4">Existing API Calls &amp; Services</h4>
               <div className="card bg-dark">
                 <div className="card-body">
                   {Object.keys(salesDetail.gapAnalysis.apiCalls).map(module => (
