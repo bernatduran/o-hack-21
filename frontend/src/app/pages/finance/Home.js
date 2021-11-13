@@ -93,13 +93,18 @@ const Home = () => {
                           <td>
                             <div className=" d-flex">
                               <b>{formatNumber(quarterData[quarter].total.currentIncome)}</b>
-                              <p
-                                className={`${
-                                  incomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({incomePercent.toFixed(2)}%)
-                              </p>
+                              {incomePercent ? (
+                                <p
+                                  className={`${
+                                    incomePercent >= 1 ? 'text-success' : 'text-danger'
+                                  } ml-2 mb-0 font-weight-medium`}
+                                >
+                                  ({incomePercent > 0 ? '+' : ''}
+                                  {incomePercent.toFixed(2)}%)
+                                </p>
+                              ) : (
+                                <p className="ml-2 mb-0 font-weight-medium">(-)</p>
+                              )}
                             </div>
                           </td>
                           <td>
@@ -108,14 +113,18 @@ const Home = () => {
                           <td>
                             <div className=" d-flex">
                               <b>{formatNumber(quarterData[quarter].total.currentOutcome)}</b>
-                              <p
-                                className={`${
-                                  outcomePercent >= 1 ? 'text-success' : 'text-danger'
-                                } ml-2 mb-0 font-weight-medium`}
-                              >
-                                ({outcomePercent > 0 ? '+' : ''}
-                                {outcomePercent.toFixed(2)}%)
-                              </p>
+                              {outcomePercent ? (
+                                <p
+                                  className={`${
+                                    outcomePercent >= 1 ? 'text-success' : 'text-danger'
+                                  } ml-2 mb-0 font-weight-medium`}
+                                >
+                                  ({outcomePercent > 0 ? '+' : ''}
+                                  {outcomePercent.toFixed(2)}%)
+                                </p>
+                              ) : (
+                                <p className="ml-2 mb-0 font-weight-medium">(-)</p>
+                              )}
                             </div>
                           </td>
                         </tr>
@@ -143,7 +152,8 @@ const Home = () => {
                                         incomePercent >= 1 ? 'text-success' : 'text-danger'
                                       } ml-2 mb-0 font-weight-medium`}
                                     >
-                                      ({incomePercent.toFixed(2)}%)
+                                      ({incomePercent > 0 ? '+' : ''}
+                                      {incomePercent.toFixed(2)}%)
                                     </p>
                                   ) : (
                                     <p className="ml-2 mb-0 font-weight-medium">(-)</p>
@@ -154,14 +164,18 @@ const Home = () => {
                               <td>
                                 <div className=" d-flex">
                                   {formatNumber(quarterData[quarter][section].currentOutcome)}
-                                  <p
-                                    className={`${
-                                      outcomePercent >= 1 ? 'text-success' : 'text-danger'
-                                    } ml-2 mb-0 font-weight-medium`}
-                                  >
-                                    ({outcomePercent > 0 ? '+' : ''}
-                                    {outcomePercent.toFixed(2)}%)
-                                  </p>
+                                  {outcomePercent ? (
+                                    <p
+                                      className={`${
+                                        outcomePercent >= 1 ? 'text-success' : 'text-danger'
+                                      } ml-2 mb-0 font-weight-medium`}
+                                    >
+                                      ({outcomePercent > 0 ? '+' : ''}
+                                      {outcomePercent.toFixed(2)}%)
+                                    </p>
+                                  ) : (
+                                    <p className="ml-2 mb-0 font-weight-medium">(-)</p>
+                                  )}
                                 </div>
                               </td>
                             </tr>
