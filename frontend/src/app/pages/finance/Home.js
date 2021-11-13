@@ -16,7 +16,6 @@ const Home = () => {
   return (
     <div>
       <div className="page-header">
-        {console.log(quarterData)}
         <h3 className="page-title">Finance</h3>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -51,15 +50,16 @@ const Home = () => {
           </div>
         </div>
         {quarters.map(quarter => {
+          console.log(quarterData);
           const incomePercent =
             ((quarterData[quarter].total.currentIncome -
               quarterData[quarter].total.expectedIncome) /
-              quarterData[quarter].total.expectedIncome) *
+              (quarterData[quarter].total.expectedIncome || 1)) *
             100;
           const outcomePercent =
             ((quarterData[quarter].total.currentOutcome -
-              quarterData[quarter].total.expectedIncome) /
-              quarterData[quarter].total.expectedOutcome) *
+              quarterData[quarter].total.expectedOutcome) /
+              (quarterData[quarter].total.expectedOutcome || 1)) *
             100;
           return (
             <div key={quarter} className="col-md-6 grid-margin stretch-card">
@@ -113,21 +113,22 @@ const Home = () => {
                                   outcomePercent >= 1 ? 'text-success' : 'text-danger'
                                 } ml-2 mb-0 font-weight-medium`}
                               >
-                                ({outcomePercent.toFixed(2)}%)
+                                ({outcomePercent > 0 ? '+' : ''}
+                                {outcomePercent.toFixed(2)}%)
                               </p>
                             </div>
                           </td>
                         </tr>
                         {sections.map(section => {
-                          const qncomePercent =
+                          const incomePercent =
                             ((quarterData[quarter][section].currentIncome -
                               quarterData[quarter][section].expectedIncome) /
-                              quarterData[quarter][section].expectedIncome) *
+                              (quarterData[quarter][section].expectedIncome || 1)) *
                             100;
                           const outcomePercent =
                             ((quarterData[quarter][section].currentOutcome -
-                              quarterData[quarter][section].expectedIncome) /
-                              quarterData[quarter][section].expectedOutcome) *
+                              quarterData[quarter][section].expectedOutcome) /
+                              (quarterData[quarter][section].expectedOutcome || 1)) *
                             100;
                           return (
                             <tr>
@@ -136,13 +137,17 @@ const Home = () => {
                               <td>
                                 <div className=" d-flex">
                                   {formatNumber(quarterData[quarter][section].currentIncome)}
-                                  <p
-                                    className={`${
-                                      incomePercent >= 1 ? 'text-success' : 'text-danger'
-                                    } ml-2 mb-0 font-weight-medium`}
-                                  >
-                                    ({incomePercent.toFixed(2)}%)
-                                  </p>
+                                  {incomePercent ? (
+                                    <p
+                                      className={`${
+                                        incomePercent >= 1 ? 'text-success' : 'text-danger'
+                                      } ml-2 mb-0 font-weight-medium`}
+                                    >
+                                      ({incomePercent.toFixed(2)}%)
+                                    </p>
+                                  ) : (
+                                    <p className="ml-2 mb-0 font-weight-medium">(-)</p>
+                                  )}
                                 </div>
                               </td>
                               <td>{formatNumber(quarterData[quarter][section].expectedOutcome)}</td>
@@ -154,7 +159,8 @@ const Home = () => {
                                       outcomePercent >= 1 ? 'text-success' : 'text-danger'
                                     } ml-2 mb-0 font-weight-medium`}
                                   >
-                                    ({outcomePercent.toFixed(2)}%)
+                                    ({outcomePercent > 0 ? '+' : ''}
+                                    {outcomePercent.toFixed(2)}%)
                                   </p>
                                 </div>
                               </td>

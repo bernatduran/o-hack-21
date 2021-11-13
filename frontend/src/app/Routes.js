@@ -12,6 +12,7 @@ const ProductHome = lazy(() => import('./pages/product/Home'));
 const HrHome = lazy(() => import('./pages/hr/Home'));
 
 const SalesHome = lazy(() => import('./pages/sales/Home'));
+const SalesDetail = lazy(() => import('./pages/sales/Detail'));
 const NewSale = lazy(() => import('./pages/sales/NewSale'));
 
 class Routes extends Component {
@@ -28,7 +29,7 @@ class Routes extends Component {
           <Route path="/hr" component={HrHome} />
 
           <Route path="/sales/project/new" component={NewSale} />
-          <Route path="/sales/project/:id" component={SalesHome} />
+          <Route path="/sales/project/:id" component={SalesDetail} />
           <Route path="/sales" component={SalesHome} />
 
           <Redirect to="/dashboard" />

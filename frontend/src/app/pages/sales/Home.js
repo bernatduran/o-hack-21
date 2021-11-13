@@ -46,7 +46,7 @@ const Home = () => {
                     {data.currentProspects.map(project => (
                       <tr key={project.id}>
                         <td>
-                          <a className="" href={`/sales/${project.id}`}>
+                          <a className="" href={`/sales/project/${project.id}`}>
                             {project.projectName}
                           </a>
                         </td>
@@ -93,7 +93,7 @@ const Home = () => {
                     {data.currentProjects.map(project => (
                       <tr key={project.id}>
                         <td>
-                          <a className="" href={`/sales/${project.id}`}>
+                          <a className="" href={`/sales/project/${project.id}`}>
                             {project.projectName}
                           </a>
                         </td>
