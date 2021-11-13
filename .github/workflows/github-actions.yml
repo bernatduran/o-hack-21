@@ -11,7 +11,10 @@ jobs:
           dotnet-version: '3.1.x'
       - name: Install dependencies
         run: dotnet restore
+        working-directory: backend/src
       - name: Build
         run: dotnet build --configuration Release --no-restore
+        working-directory: backend/src
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+        working-directory: backend/src
