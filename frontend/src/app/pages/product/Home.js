@@ -23,8 +23,8 @@ const ProductHome = () => {
           <div className="card">
             <div className="card-body">
               <form className="form-sample">
-                <div className="container-fluid d-flex">
-                  <Form.Group className="col-2 grid-margin">
+                <div className="container-fluid d-flex mb-4">
+                  <Form.Group className="col-2 mb-0">
                     <select className="form-control">
                       <option hidden>Team</option>
                       <option>Sentinel</option>
@@ -35,7 +35,7 @@ const ProductHome = () => {
                       <option>HUBSA</option>
                     </select>
                   </Form.Group>
-                  <Form.Group className="col-2 grid-margin">
+                  <Form.Group className="col-2 mb-0">
                     <select className="form-control">
                       <option hidden>Project</option>
                       {projectNames.map(name => (
@@ -43,9 +43,10 @@ const ProductHome = () => {
                       ))}
                     </select>
                   </Form.Group>
-                  <Form.Group className="col-2 grid-margin">
+                  <Form.Group className="col-2 mb-0">
                     <Form.Control type="date" />
                   </Form.Group>
+                  <button className="btn btn-success  create-new-button">Apply filters</button>
                 </div>
                 <div className="row">
                   <div className="table-responsive">
